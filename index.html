@@ -216,6 +216,28 @@
   .pdp td { padding: 4px 18px 4px 0; border-bottom: 1px solid #E7E7DC; color: #3E4C45; }
   .pdp td:nth-child(2), .pdp td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
   .pdp .fine { font-size: 13px; color: #6B7A72; margin-top: 18px; max-width: 60ch; }
+
+  /* ------- contact ------- */
+  .ph-contact { background-image: linear-gradient(180deg, rgba(12,32,40,0.2) 30%, rgba(12,32,40,0.68) 100%), var(--i-hands); }
+  .contact { padding: clamp(40px, 6vw, 72px) 0; }
+  .cgrid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.45fr); gap: 48px; align-items: start; }
+  @media (max-width: 800px) { .cgrid { grid-template-columns: 1fr; } }
+  .cintro h2, .thanks h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); margin-bottom: 12px; }
+  .cintro p, .thanks p { color: #57675F; max-width: 44ch; margin-bottom: 14px; }
+  .csmall { font-size: 14px; }
+  .cform { background: #FDFDF9; border: 1px solid #E4E4DA; border-radius: 16px; padding: 28px; display: grid; gap: 16px; }
+  .crow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 560px) { .crow { grid-template-columns: 1fr; } }
+  .cform label { display: grid; gap: 6px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E5C4F; font-weight: 600; }
+  .cform label span { text-transform: none; letter-spacing: 0; color: #8A978F; font-weight: 400; }
+  .cform input, .cform select, .cform textarea { width: 100%; padding: 12px 16px; border: 1px solid #C9D2CB; border-radius: 12px; font: inherit; font-size: 15px; color: #182420; background: #fff; letter-spacing: 0; text-transform: none; font-weight: 400; }
+  .cform textarea { resize: vertical; min-height: 120px; }
+  .cform input:focus, .cform select:focus, .cform textarea:focus { outline: 2px solid #1E5C4F; outline-offset: 1px; border-color: #1E5C4F; }
+  .cform button { justify-self: start; border: 0; cursor: pointer; }
+  .cabout { font-size: 14px; color: #1E5C4F; background: #EEF3EE; border-radius: 10px; padding: 10px 14px; margin: 0; }
+  .cabout[hidden] { display: none; }
+  .botcheck { position: absolute; left: -9999px; opacity: 0; }
+  .thanks { min-height: 50vh; }
 </style>
 
 <div class="inner">
@@ -225,6 +247,7 @@
       <a href="#sec-shop">Shop</a>
       <a href="#page-coast">The Society</a>
       <a href="#page-kitchens">For Kitchens &amp; Retail</a>
+      <a href="#page-contact">Contact</a>
       
     </span>
   </nav>
@@ -300,7 +323,7 @@
         <p class="use">Round and deep: red chili warmth over dark umami &middot; Contains fish sauce</p><p class="price">99 kr</p>
       </a>
     </div>
-    <p style="margin-top: 34px;"><a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Taster%20Pack%20request">Request a Taster Pack</a></p>
+    <p style="margin-top: 34px;"><a class="cta cta-green" href="#page-contact?topic=taster">Request a Taster Pack</a></p>
   </div>
 </section>
 
@@ -361,7 +384,7 @@
         <h2>The Seaweed Society</h2>
         <p>Founded on the Helgeland coast with one purpose: getting the world to eat more kelp. The Taster Pack is the best place to start: all four tins, one continuous coastline.</p>
         <p style="margin-top: -14px;"><a class="link" href="#page-coast">Who we are &rarr;</a></p>
-        <a class="cta cta-dark" href="mailto:markusmoberg@gmail.com?subject=Taster%20Pack%20request">Request a Taster Pack</a>
+        <a class="cta cta-dark" href="#page-contact?topic=taster">Request a Taster Pack</a>
       </div>
     </div>
   </div>
@@ -427,7 +450,7 @@
   <div class="inner">
     <h2>Follow the harvest.</h2>
     <p>One letter from the coast now and then: what the sea is doing, what we are making, and when the new harvest lands.</p>
-    <div class="row"><a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Follow%20the%20harvest">Follow along by email</a></div>
+    <div class="row"><a class="cta cta-green" href="#page-contact?topic=harvest">Follow along</a></div>
   </div>
 </section>
 
@@ -476,7 +499,7 @@
       <a href="https://cdn.shopify.com/s/files/1/0793/4604/1064/files/SeaweedSociety_Datasheet_red-seaweed-puree.pdf" target="_blank" rel="noopener">Red Curry Kelp<small>PDF datasheet</small></a>
     </div>
 
-    <p style="margin-top: 40px;"><a class="cta cta-green" href="mailto:markusmoberg@gmail.com">Request samples &amp; wholesale pricing</a></p>
+    <p style="margin-top: 40px;"><a class="cta cta-green" href="#page-contact?topic=wholesale">Request samples &amp; wholesale pricing</a></p>
   </div>
 </section>
 
@@ -495,7 +518,7 @@
         <p class="taste">Nordic umami in a spoon.</p>
         <p class="price">99 kr <span style="font-weight:400; color:#6B7A72; font-size:14px;">&middot; 120 g &middot; 8 servings</span></p>
         <p class="desc">Winged kelp with pumpkin and sunflower seeds, garlic and lemon. Rich, deeply savoury: the kelp does the umami work parmesan usually does. Perfect for pasta, fish and bread.</p>
-        <a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Samples%3A%20Seaweed%20Pesto">Request samples</a>
+        <a class="cta cta-green" href="#page-contact?topic=samples&amp;product=Seaweed%20Pesto">Request samples</a>
 
         <h4>In the kitchen</h4>
         <ul>
@@ -547,7 +570,7 @@
         <p class="taste">Creamy, plant-based, and full of flavour.</p>
         <p class="price">99 kr <span style="font-weight:400; color:#6B7A72; font-size:14px;">&middot; 120 g &middot; 8 servings</span></p>
         <p class="desc">Winged kelp and chickpeas with garlic, lemon and cumin. Lighter than a classic hummus, with a clean mineral finish from the sea. The most kelp of the four, at 37%.</p>
-        <a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Samples%3A%20Sea%20Hummus">Request samples</a>
+        <a class="cta cta-green" href="#page-contact?topic=samples&amp;product=Sea%20Hummus">Request samples</a>
 
         <h4>In the kitchen</h4>
         <ul>
@@ -599,7 +622,7 @@
         <p class="taste">Fresh green curry with a hint of the sea.</p>
         <p class="price">99 kr <span style="font-weight:400; color:#6B7A72; font-size:14px;">&middot; 120 g &middot; 8 servings</span></p>
         <p class="desc">Winged kelp and mung beans in a green curry of coconut milk, lemongrass, galangal and kaffir lime. Mild heat, fresh finish. Makes rice, noodles and vegetables instantly exciting.</p>
-        <a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Samples%3A%20Green%20Curry%20Kelp">Request samples</a>
+        <a class="cta cta-green" href="#page-contact?topic=samples&amp;product=Green%20Curry%20Kelp">Request samples</a>
 
         <h4>In the kitchen</h4>
         <ul>
@@ -651,7 +674,7 @@
         <p class="taste">Deep, warming curry with ocean umami.</p>
         <p class="price">99 kr <span style="font-weight:400; color:#6B7A72; font-size:14px;">&middot; 120 g &middot; 8 servings</span></p>
         <p class="desc">Winged kelp and chickpeas in a red curry of coconut milk, chilli and lemongrass, with fish sauce the way a proper red curry wants it. Use as a sauce, a base or a topping, ready in seconds.</p>
-        <a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Samples%3A%20Red%20Curry%20Kelp">Request samples</a>
+        <a class="cta cta-green" href="#page-contact?topic=samples&amp;product=Red%20Curry%20Kelp">Request samples</a>
 
         <h4>In the kitchen</h4>
         <ul>
@@ -691,6 +714,69 @@
 
 </div>
 
+
+<div class="page" id="page-contact">
+
+<section class="pagehero ph-contact">
+  <div class="inner">
+    <p class="note">Samples &middot; Wholesale &middot; Kitchens &middot; Press</p>
+    <h1>Get in touch.</h1>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="inner">
+    <div class="cgrid">
+      <div class="cintro">
+        <h2>Tell us what you need.</h2>
+        <p>Samples for your kitchen, wholesale terms for your shelves, or a Taster Pack to try at home. We read every message and reply within two working days.</p>
+        <p class="csmall">Helgeland Seaweed Society<br>R&oslash;d&oslash;y, Helgeland, Norway</p>
+      </div>
+      <form class="cform" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="c7c66cbb-750a-4eb7-8494-7a758195334c">
+        <input type="hidden" name="subject" id="c-subject" value="Website enquiry">
+        <input type="hidden" name="from_name" value="Helgeland website">
+        <input type="hidden" name="redirect" value="https://helgelandseaweedsociety.com/#page-thanks">
+        <input type="hidden" name="product" id="c-product" value="">
+        <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="cabout" id="c-about" hidden></p>
+        <div class="crow">
+          <label>Name<input type="text" name="name" required autocomplete="name"></label>
+          <label>Email<input type="email" name="email" required autocomplete="email"></label>
+        </div>
+        <div class="crow">
+          <label>Company or restaurant <span>(optional)</span><input type="text" name="company" autocomplete="organization"></label>
+          <label>What is this about?
+            <select name="topic" id="c-topic">
+              <option value="Samples">Samples</option>
+              <option value="Taster Pack">A Taster Pack</option>
+              <option value="Wholesale pricing">Wholesale pricing</option>
+              <option value="For kitchens">For my kitchen</option>
+              <option value="Follow the harvest">Follow the harvest</option>
+              <option value="Press">Press</option>
+              <option value="Something else">Something else</option>
+            </select>
+          </label>
+        </div>
+        <label>Message<textarea name="message" rows="5" required></textarea></label>
+        <button type="submit" class="cta cta-green">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="page" id="page-thanks">
+<section class="contact thanks">
+  <div class="inner">
+    <h2>Thank you.</h2>
+    <p>Your message is on its way. We read every one and reply within two working days.</p>
+    <p><a class="link" href="#page-home">Back to the coast &rarr;</a></p>
+  </div>
+</section>
+</div>
+
 <footer class="site">
   <div class="inner">
     <span>Helgeland Seaweed Society</span>
@@ -700,6 +786,8 @@
 
 <script>
 document.body.classList.add('js');
+var TOPICS = { samples: 'Samples', taster: 'Taster Pack', wholesale: 'Wholesale pricing', kitchens: 'For kitchens', harvest: 'Follow the harvest', press: 'Press' };
+function parse(h) { var s = (h || '').replace(/^#/, '').split('?'); return { id: s[0], qs: s[1] || '' }; }
 function showPage(id) {
   var pg = id && document.getElementById(id);
   if (!(pg && pg.classList.contains('page'))) pg = document.getElementById('page-home');
@@ -707,10 +795,25 @@ function showPage(id) {
   pg.classList.add('active');
   return pg;
 }
+function updateSubject() {
+  var sel = document.getElementById('c-topic'), prod = document.getElementById('c-product'), subj = document.getElementById('c-subject');
+  if (sel && subj) subj.value = 'Website: ' + sel.value + (prod.value ? ' \u00b7 ' + prod.value : '');
+}
+function prefillContact(qs) {
+  var p = new URLSearchParams(qs || ''), sel = document.getElementById('c-topic');
+  if (!sel) return;
+  var topic = TOPICS[p.get('topic')], product = p.get('product') || '';
+  if (topic) sel.value = topic;
+  document.getElementById('c-product').value = product;
+  var about = document.getElementById('c-about');
+  about.textContent = product ? 'About: ' + product : '';
+  about.hidden = !product;
+  updateSubject();
+}
 function route() {
-  var id = (location.hash || '').slice(1);
-  var pg = showPage(id);
-  var el = id && document.getElementById(id);
+  var t = parse(location.hash), pg = showPage(t.id);
+  if (pg.id === 'page-contact') prefillContact(t.qs);
+  var el = t.id && document.getElementById(t.id);
   if (el && el !== pg && pg.id === 'page-home') el.scrollIntoView(); else window.scrollTo(0, 0);
 }
 route();
@@ -719,16 +822,17 @@ document.addEventListener('click', function (e) {
   var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
   if (!a) return;
   e.preventDefault();
-  var id = a.getAttribute('href').slice(1);
-  var target = document.getElementById(id);
+  var t = parse(a.getAttribute('href')), target = document.getElementById(t.id);
   if (target && target.classList.contains('page')) {
-    history.pushState(null, '', '#' + id);
-    showPage(id); window.scrollTo(0, 0);
+    history.pushState(null, '', '#' + t.id + (t.qs ? '?' + t.qs : ''));
+    showPage(t.id); if (t.id === 'page-contact') prefillContact(t.qs); window.scrollTo(0, 0);
   } else {
     showPage('page-home');
-    history.replaceState(null, '', id ? '#' + id : location.pathname);
+    history.replaceState(null, '', t.id ? '#' + t.id : location.pathname);
     if (target) target.scrollIntoView();
   }
 }, true);
+var topicSel = document.getElementById('c-topic');
+if (topicSel) topicSel.addEventListener('change', updateSubject);
 </script>
 
