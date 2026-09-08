@@ -700,28 +700,34 @@
 
 <script>
 document.body.classList.add('js');
-var h = (location.hash || '').slice(1);
-var start = h && document.getElementById(h);
-if (start && start.classList.contains('page')) start.classList.add('active');
-else document.getElementById('page-home').classList.add('active');
+function showPage(id) {
+  var pg = id && document.getElementById(id);
+  if (!(pg && pg.classList.contains('page'))) pg = document.getElementById('page-home');
+  document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
+  pg.classList.add('active');
+  return pg;
+}
+function route() {
+  var id = (location.hash || '').slice(1);
+  var pg = showPage(id);
+  var el = id && document.getElementById(id);
+  if (el && el !== pg && pg.id === 'page-home') el.scrollIntoView(); else window.scrollTo(0, 0);
+}
+route();
+window.addEventListener('popstate', route);
 document.addEventListener('click', function (e) {
   var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
   if (!a) return;
-  var id = a.getAttribute('href').slice(1);
-  var pg = document.getElementById(id);
   e.preventDefault();
-  if (pg && pg.classList.contains('page')) {
-    document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
-    pg.classList.add('active');
-    window.scrollTo(0, 0);
+  var id = a.getAttribute('href').slice(1);
+  var target = document.getElementById(id);
+  if (target && target.classList.contains('page')) {
+    history.pushState(null, '', '#' + id);
+    showPage(id); window.scrollTo(0, 0);
   } else {
-    var home = document.getElementById('page-home');
-    if (!home.classList.contains('active')) {
-      document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
-      home.classList.add('active');
-    }
-    var el = document.getElementById(id);
-    if (el) el.scrollIntoView();
+    showPage('page-home');
+    history.replaceState(null, '', id ? '#' + id : location.pathname);
+    if (target) target.scrollIntoView();
   }
 }, true);
 </script>
