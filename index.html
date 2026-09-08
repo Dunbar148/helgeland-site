@@ -1,0 +1,728 @@
+<title>Helgeland Seaweed Society</title>
+<meta name="description" content="Arctic-grown kelp in four ready-to-eat tins: Seaweed Pesto, Sea Hummus, Green Curry Kelp and Red Curry Kelp. Grown on ropes off Rødøy at the Arctic Circle, Norway.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%230E2A33%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Georgia,serif%27 font-size=%2736%27 text-anchor=%27middle%27 fill=%27%23E9EDE6%27%3EH%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  :root {
+    --i-hero: url("img/hero.jpg");
+    --i-pesto: url("img/pesto.jpg");
+    --i-tabwood: url("img/tabwood.jpg");
+    --i-under: url("img/under.jpg");
+    --i-snowy: url("img/snowy.jpg");
+    --i-hands: url("img/hands.jpg");
+    --i-midnight: url("img/midnight.jpg");
+    --i-s1: url("img/s1.jpg");
+    --i-s2: url("img/s2.jpg");
+    --i-s3: url("img/s3.jpg");
+    --i-s4: url("img/s4.jpg");
+    --i-box: url("img/box.jpg");
+    --i-panorama: url("img/panorama.jpg");
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: #F6F5EF; color: #182420;
+    font-family: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6; font-size: 16.5px;
+  }
+  .inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  a { text-decoration: none; color: inherit; cursor: pointer; }
+  .page { display: none; }
+  .page.active { display: block; }
+  body:not(.js) .page:target { display: block; }
+  body:not(.js):not(:has(.page:target)) #page-home { display: block; }
+
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+  nav.top .logo { font-family: "Cormorant Garamond", Georgia, serif; letter-spacing: 0.2em; font-size: 20px; font-weight: 600; line-height: 1; }
+  nav.top .logo small { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 8.5px; letter-spacing: 0.3em; font-weight: 600; color: #57675F; margin-top: 3px; }
+  nav.top .links { display: flex; gap: 26px; font-size: 13.5px; font-weight: 500; opacity: 0.85; flex-wrap: wrap; }
+  nav.top .links a:hover { color: #1E5C4F; }
+
+  .bgimg { background-size: cover; background-position: center; }
+
+  /* hero */
+  .hero {
+    position: relative; min-height: 82vh; display: flex; align-items: flex-end;
+    background-image: linear-gradient(100deg, rgba(12,32,40,0.62) 0%, rgba(12,32,40,0.32) 42%, rgba(12,32,40,0.02) 68%), linear-gradient(180deg, rgba(12,32,40,0) 45%, rgba(12,32,40,0.45) 100%), var(--i-hero);
+    background-size: cover; background-position: center;
+    color: #F6F8F3;
+  }
+  .hero .inner { padding-bottom: clamp(48px, 8vw, 96px); width: 100%; }
+  .hero .note { font-size: 11.5px; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.95; margin-bottom: 18px; text-shadow: 0 1px 10px rgba(10,25,32,0.7); }
+  .hero h1 {
+    font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500;
+    font-size: clamp(38px, 5.6vw, 68px); line-height: 1.08; max-width: 15ch;
+    margin-bottom: 16px; text-wrap: balance; text-shadow: 0 2px 26px rgba(10,25,32,0.65);
+  }
+  .hero p.sub { max-width: 46ch; margin-bottom: 30px; opacity: 0.97; text-shadow: 0 1px 14px rgba(10,25,32,0.7); }
+  .cta { display: inline-block; padding: 13px 28px; border-radius: 999px; font-weight: 600; font-size: 15px; font-family: "Bricolage Grotesque", sans-serif; }
+  .cta-solid { background: #F6F8F3; color: #10333B; }
+  .cta-ghost { border: 1.5px solid rgba(246,248,243,0.75); color: #F6F8F3; margin-left: 12px; }
+  .cta-green { background: #1E5C4F; color: #F6F8F3; }
+
+  /* spread stir dip */
+  .ssd { padding: clamp(44px, 6vw, 76px) 0; text-align: center; }
+  .ssd .stage { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(30px, 7vw, 90px); }
+  .ssd .unit { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .ssd .art { width: 96px; height: 66px; color: #1E5C4F; }
+  .ssd .word {
+    font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500;
+    font-size: clamp(23px, 2.8vw, 31px); line-height: 1.1; color: #182420;
+  }
+  .ssd svg path { fill: none; stroke: currentColor; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100; stroke-dashoffset: 100; animation: draw 1.5s ease forwards; }
+  .ssd .p2 path { animation-delay: 0.35s; } .ssd .p3 path { animation-delay: 0.7s; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .ssd .sub { max-width: 52ch; margin: 26px auto 0; color: #57675F; }
+  @media (prefers-reduced-motion: reduce) {
+    .ssd svg path { animation: none; stroke-dashoffset: 0; }
+  }
+
+  /* eat split */
+  .eat { background: #EFEEE6; }
+  .eat .grid { display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; }
+  .eat .img { background-image: var(--i-pesto); min-height: 380px; }
+  .eat .txt { padding: clamp(36px, 5vw, 72px); display: flex; flex-direction: column; justify-content: center; }
+  .eat h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.15; margin-bottom: 14px; text-wrap: balance; }
+  .eat p { color: #57675F; max-width: 44ch; margin-bottom: 22px; }
+  .link { font-weight: 600; font-size: 14.5px; color: #1E5C4F; }
+  @media (max-width: 760px) { .eat .grid { grid-template-columns: 1fr; } }
+
+  /* shop */
+  .shop { padding: clamp(56px, 8vw, 96px) 0; }
+  .shop h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(28px, 4vw, 42px); margin-bottom: 8px; text-wrap: balance; }
+  .shop .tagline { color: #57675F; margin-bottom: 26px; }
+  .shop .feature { border-radius: 16px; overflow: hidden; margin-bottom: 34px; aspect-ratio: 16/7; background-image: var(--i-tabwood); }
+  .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+  .card .tinimg { aspect-ratio: 4 / 3; border-radius: 16px; }
+  .t1 { background-image: var(--i-s1); } .t2 { background-image: var(--i-s2); }
+  .t3 { background-image: var(--i-s3); } .t4 { background-image: var(--i-s4); }
+  .card .pname { font-family: "Bricolage Grotesque", sans-serif; font-weight: 600; font-size: 17px; margin: 12px 2px 0; }
+  .card .use { font-size: 13.5px; color: #6B7A72; margin: 4px 2px 0; }
+  .card .price { font-size: 13.5px; font-weight: 600; margin: 2px 2px 0; }
+
+  /* underwater band */
+  .under {
+    background-image: linear-gradient(rgba(8,30,38,0.35), rgba(8,30,38,0.35)), var(--i-under);
+    background-size: cover; background-position: center;
+    color: #F2F6F1; text-align: center;
+    padding: clamp(90px, 14vw, 170px) 0;
+  }
+  .under p.q {
+    font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500;
+    font-size: clamp(22px, 3.2vw, 36px); line-height: 1.35; max-width: 46ch;
+    margin: 0 auto; text-wrap: balance; text-shadow: 0 2px 16px rgba(5,20,26,0.6);
+  }
+
+  /* panorama band */
+  .panoband { padding: clamp(48px, 7vw, 84px) 0; }
+  .panoband h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(26px, 3.6vw, 38px); margin-bottom: 8px; }
+  .panoband .sub { color: #57675F; margin-bottom: 24px; max-width: 56ch; }
+  .panoband .pano { aspect-ratio: 16 / 7; border-radius: 16px; background-image: var(--i-panorama); }
+
+  /* why */
+  .why { background: #0E2A33; color: #E9EDE6; padding: clamp(56px, 8vw, 96px) 0; }
+  .why h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(28px, 4.4vw, 46px); line-height: 1.15; max-width: 22ch; margin-bottom: 18px; text-wrap: balance; }
+  .why p.lead { max-width: 95ch; color: #A4B4AE; margin-bottom: 36px; }
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
+  .pillar h3 { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #A4B4AE; margin-bottom: 8px; font-weight: 600; }
+  .pillar p { font-size: 15px; }
+
+  /* health */
+  .health { padding: clamp(56px, 8vw, 96px) 0; }
+  .health h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; margin-bottom: 16px; text-wrap: balance; }
+  .health p.lead { color: #57675F; max-width: 95ch; margin-bottom: 36px; }
+  .statrow { display: flex; gap: clamp(24px, 5vw, 64px); flex-wrap: wrap; }
+  .stat .n { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(30px, 4.4vw, 48px); font-weight: 500; line-height: 1; color: #1E5C4F; }
+  .stat .l { font-size: 13px; color: #57675F; margin-top: 6px; max-width: 20ch; }
+
+  /* story strip */
+  .story { padding: clamp(56px, 8vw, 90px) 0; }
+  .strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .strip figure { border-radius: 14px; overflow: hidden; position: relative; aspect-ratio: 4/3; margin: 0; }
+  .strip .ph { position: absolute; inset: 0; }
+  .p-snowy { background-image: var(--i-snowy); }
+  .p-hands { background-image: var(--i-hands); }
+  .p-midnight { background-image: var(--i-midnight); }
+  .p-under { background-image: var(--i-under); }
+  .p-coast { background-image: var(--i-hero); }
+  .strip figcaption {
+    position: absolute; left: 12px; bottom: 12px;
+    background: rgba(14,42,51,0.62); color: #F2F6F1;
+    font-size: 12px; letter-spacing: 0.05em; padding: 5px 12px; border-radius: 7px;
+  }
+  .story .more { margin-top: 20px; font-size: 14.5px; }
+
+  /* cause intro + signup */
+  .cause { padding: clamp(48px, 7vw, 80px) 0 0; }
+  .cause h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(26px, 3.6vw, 40px); line-height: 1.12; margin-bottom: 14px; text-wrap: balance; }
+  .cause p { color: #57675F; max-width: 66ch; margin-bottom: 12px; }
+  .signup { padding: clamp(40px, 6vw, 64px) 0; }
+  .signup h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(24px, 3.2vw, 34px); margin-bottom: 8px; }
+  .signup p { color: #57675F; max-width: 60ch; margin-bottom: 18px; }
+  .signup .row { display: flex; gap: 10px; max-width: 440px; flex-wrap: wrap; }
+  .signup input { flex: 1; min-width: 220px; padding: 12px 16px; border: 1px solid #C9D2CB; border-radius: 999px; font: inherit; font-size: 15px; background: #FDFDF9; color: #182420; }
+
+  /* society */
+  .society { background: #E8F0E2; color: #1C2E1E; padding: clamp(56px, 8vw, 90px) 0; }
+  .socgrid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(26px, 4vw, 56px); align-items: center; }
+  @media (max-width: 800px) { .socgrid { grid-template-columns: 1fr; } }
+  .socimg { aspect-ratio: 3 / 2; border-radius: 16px; background-image: var(--i-box); }
+  .society h2 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; text-transform: uppercase; font-size: clamp(26px, 3.6vw, 40px); line-height: 1.02; margin-bottom: 14px; }
+  .society p { max-width: 48ch; margin: 0 0 28px; opacity: 0.8; }
+  .cta-dark { background: #1C2E1E; color: #E8F0E2; }
+
+  footer.site { padding: 36px 0 48px; font-size: 13px; color: #6B7A72; }
+  footer.site .inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid #DDDCD2; padding-top: 26px; }
+
+  /* ---------- subpages ---------- */
+  .pagehero { position: relative; min-height: 52vh; display: flex; align-items: flex-end; color: #F6F8F3; background-size: cover; background-position: center; }
+  .pagehero .inner { padding-bottom: clamp(36px, 6vw, 64px); width: 100%; }
+  .pagehero h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(34px, 5vw, 58px); text-shadow: 0 2px 18px rgba(10,25,32,0.5); }
+  .pagehero .note { font-size: 11.5px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.9; margin-bottom: 12px; text-shadow: 0 1px 8px rgba(10,25,32,0.5); }
+  .ph-coast { background-image: linear-gradient(180deg, rgba(12,32,40,0.15) 30%, rgba(12,32,40,0.68) 100%), var(--i-snowy); }
+  .ph-kitchen { background-image: linear-gradient(180deg, rgba(12,32,40,0.2) 30%, rgba(12,32,40,0.68) 100%), var(--i-tabwood); }
+
+  .coastblock { padding: clamp(48px, 7vw, 80px) 0; }
+  .coastblock .grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+  .coastblock .grid.rev { direction: rtl; } .coastblock .grid.rev > * { direction: ltr; }
+  .coastblock .photo { aspect-ratio: 4/3; border-radius: 16px; }
+  .coastblock h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(24px, 3.2vw, 36px); line-height: 1.15; margin-bottom: 12px; text-wrap: balance; }
+  .coastblock p { color: #57675F; max-width: 46ch; }
+  @media (max-width: 760px) { .coastblock .grid { grid-template-columns: 1fr; } }
+
+  .tradepage { padding: clamp(48px, 7vw, 80px) 0; }
+  .tradepage h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(24px, 3.2vw, 36px); margin-bottom: 14px; }
+  .tcols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 26px; margin: 26px 0 40px; }
+  .tcard { background: #FDFDF9; border: 1px solid #E4E4DA; border-radius: 14px; padding: 24px 26px; }
+  .tcard h3 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #1E5C4F; margin-bottom: 8px; }
+  .tcard p { font-size: 15px; color: #3E4C45; }
+  .dslist { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 18px; }
+  .dslist a { display: block; background: #FDFDF9; border: 1px solid #E4E4DA; border-radius: 10px; padding: 14px 18px; font-size: 14px; font-weight: 600; color: #1E5C4F; }
+  .dslist a small { display: block; font-weight: 400; color: #6B7A72; margin-top: 2px; }
+
+  /* PDP */
+  .pdp { padding: clamp(40px, 6vw, 72px) 0; }
+  .pdp .grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+  @media (max-width: 800px) { .pdp .grid { grid-template-columns: 1fr; } .pdp .photo { position: static; } }
+  .pdp .photo { aspect-ratio: 16/9; border-radius: 18px; position: sticky; top: 24px; }
+  .pdp .kick { font-size: 11.5px; letter-spacing: 0.24em; text-transform: uppercase; color: #1E5C4F; font-weight: 600; margin-bottom: 10px; }
+  .pdp h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(32px, 4.4vw, 50px); line-height: 1.08; margin-bottom: 8px; }
+  .pdp .taste { font-size: 18px; color: #57675F; margin-bottom: 18px; }
+  .pdp .price { font-family: "Bricolage Grotesque", sans-serif; font-weight: 600; font-size: 20px; margin-bottom: 20px; }
+  .pdp .desc { color: #3E4C45; max-width: 60ch; margin-bottom: 24px; }
+  .pdp h4 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #1E5C4F; margin: 22px 0 8px; }
+  .pdp ul { padding-left: 18px; color: #3E4C45; font-size: 15px; }
+  .pdp li { margin-bottom: 5px; }
+  .pdp table { border-collapse: collapse; font-size: 14px; margin-top: 4px; }
+  .pdp td { padding: 4px 18px 4px 0; border-bottom: 1px solid #E7E7DC; color: #3E4C45; }
+  .pdp td:nth-child(2), .pdp td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .pdp .fine { font-size: 13px; color: #6B7A72; margin-top: 18px; max-width: 60ch; }
+</style>
+
+<div class="inner">
+  <nav class="top">
+    <a class="logo" href="#page-home">HELGELAND<small>SEAWEED SOCIETY</small></a>
+    <span class="links">
+      <a href="#sec-shop">Shop</a>
+      <a href="#page-coast">The Society</a>
+      <a href="#page-kitchens">For Kitchens &amp; Retail</a>
+      
+    </span>
+  </nav>
+</div>
+
+<!-- ==================== HOME ==================== -->
+<div class="page" id="page-home">
+
+<section class="hero">
+  <div class="inner">
+    <p class="note">Kelp &middot; Grown at the Arctic Circle, Norway</p>
+    <h1>From the clearest water in Norway.</h1>
+    <p class="sub">Kelp in four ready-to-eat tins: deep and savory, closer to umami than to fish.</p>
+    <a class="cta cta-solid" href="#sec-shop">See the tins</a><a class="cta cta-ghost" href="#page-coast">See our coast</a>
+  </div>
+</section>
+
+<section class="ssd">
+  <div class="inner">
+    <div class="stage">
+      <div class="unit">
+        <div class="art p1"><svg viewBox="0 0 120 80" aria-hidden="true"><path pathLength="100" d="M22,38 a20 16 0 0 1 76 0 l0 24 l-76 0 z"/><path pathLength="100" d="M38,48 q14 -9 28 0 q9 6 18 -2"/><path pathLength="100" d="M78,12 l16 18"/></svg></div>
+        <div class="word p1">Spread it.</div>
+      </div>
+      <div class="unit">
+        <div class="art p2"><svg viewBox="0 0 120 80" aria-hidden="true"><path pathLength="100" d="M24,42 l72 0"/><path pathLength="100" d="M30,42 a30 22 0 0 0 60 0"/><path pathLength="100" d="M66,10 l-6 30"/><path pathLength="100" d="M48,54 q10 -8 22 0 q-8 6 -16 2"/></svg></div>
+        <div class="word p2">Stir it.</div>
+      </div>
+      <div class="unit">
+        <div class="art p3"><svg viewBox="0 0 120 80" aria-hidden="true"><path pathLength="100" d="M28,50 l64 0"/><path pathLength="100" d="M34,50 a26 18 0 0 0 52 0"/><path pathLength="100" d="M58,16 l16 26 l-26 0 z"/></svg></div>
+        <div class="word p3">Dip it.</div>
+      </div>
+    </div>
+    <p class="sub">One tin, three moves. Zero prep, zero waste, and no wrong way to do it.</p>
+  </div>
+</section>
+
+<section class="eat">
+  <div class="grid">
+    <div class="img bgimg" role="img" aria-label="Seaweed pesto being spread on dark rye bread"></div>
+    <div class="txt">
+      <h2>Ten seconds from tin to table.</h2>
+      <p>Pull the ring and start. No chopping, no cooking, nothing left to waste.</p>
+      <a class="link" href="#page-pesto">See the Seaweed Pesto &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="shop" id="sec-shop">
+  <div class="inner">
+    <h2>The tins</h2>
+    <p class="tagline">Ready the second you pull the ring, and no wrong way to do it. Prices in Norwegian kroner; US pricing from $7.99 at launch.</p>
+    <div class="feature bgimg" role="img" aria-label="All four Helgeland tins open on a wooden table with rye bread"></div>
+    <div class="grid4">
+      <a class="card" href="#page-pesto">
+        <div class="tinimg bgimg t1" role="img" aria-label="Helgeland Seaweed Pesto tin"></div>
+        <p class="pname">Seaweed Pesto</p>
+        <p class="use">Herby and deep, with the sea's quiet saltiness &middot; Vegan</p><p class="price">99 kr</p>
+      </a>
+      <a class="card" href="#page-hummus">
+        <div class="tinimg bgimg t2" role="img" aria-label="Helgeland Sea Hummus tin"></div>
+        <p class="pname">Sea Hummus</p>
+        <p class="use">Creamy and mild, lifted by clean ocean brine &middot; Vegan</p><p class="price">99 kr</p>
+      </a>
+      <a class="card" href="#page-green">
+        <div class="tinimg bgimg t3" role="img" aria-label="Helgeland Green Curry Kelp tin"></div>
+        <p class="pname">Green Curry Kelp</p>
+        <p class="use">Bright and warm: green herbs, coconut warmth, fresh kelp &middot; Vegan</p><p class="price">99 kr</p>
+      </a>
+      <a class="card" href="#page-red">
+        <div class="tinimg bgimg t4" role="img" aria-label="Helgeland Red Curry Kelp tin"></div>
+        <p class="pname">Red Curry Kelp</p>
+        <p class="use">Round and deep: red chili warmth over dark umami &middot; Contains fish sauce</p><p class="price">99 kr</p>
+      </a>
+    </div>
+    <p style="margin-top: 34px;"><a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Taster%20Pack%20request">Request a Taster Pack</a></p>
+  </div>
+</section>
+
+<section class="panoband">
+  <div class="inner">
+    <h2>One coast, four tins.</h2>
+    <div class="pano bgimg" role="img" aria-label="Four packs aligned so their artworks join into one coastline panorama"></div>
+  </div>
+</section>
+
+<section class="under">
+  <div class="inner">
+    <p class="q">Kelp asks for nothing.<br>No farmland, no fresh water, no fertiliser.<br>It grows in the sea, and leaves it cleaner.</p>
+  </div>
+</section>
+
+<section class="why">
+  <div class="inner">
+    <h2>The cleanest food on&nbsp;Earth<br>grows in the sea.</h2>
+    <p class="lead">Off R&oslash;d&oslash;y, at the Arctic Circle, kelp grows slowly on ropes in the clear, cold sea.<br>Seven years of work went into these four tins.</p>
+    <div class="pillars">
+      <div class="pillar"><h3>Cold water, slow growth</h3><p>Kelp grown slowly in Arctic water tastes the way the sea smells: clean, deep, fresh.</p></div>
+      <div class="pillar"><h3>Nothing needed</h3><p>No farmland, no fresh water, no fertiliser, no pesticides. The sea does all of it.</p></div>
+      <div class="pillar"><h3>Umami, naturally</h3><p>The deep fifth taste that makes food satisfying, straight from the sea.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="health">
+  <div class="inner">
+    <h2>Good for you, in the oldest way.</h2>
+    <p class="lead">Seaweed has fed the Norwegian coast for a thousand years.<br>Kelp is a sea vegetable: light, naturally rich in minerals, and part of everyday cooking here long before it was fashionable.</p>
+    <div class="statrow">
+      <div class="stat"><div class="n">3 years</div><div class="l">in the cupboard, no fridge until opened</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">gluten or dairy in any tin</div></div>
+      <div class="stat"><div class="n">8</div><div class="l">servings in every tin, no preservatives</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">fully vegan varieties</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="inner">
+    <div class="strip">
+      <figure><div class="ph bgimg p-snowy" role="img" aria-label="Snow-covered peaks reflected in still clear water"></div><figcaption>Winter on the coast</figcaption></figure>
+      <figure><div class="ph bgimg p-hands" role="img" aria-label="Hands lifting a line of kelp from the sea beside a wooden boat"></div><figcaption>The harvest, by hand</figcaption></figure>
+      <figure><div class="ph bgimg p-midnight" role="img" aria-label="Midnight sun over the Helgeland coast"></div><figcaption>Midnight sun, R&oslash;d&oslash;y</figcaption></figure>
+    </div>
+    <p class="more"><a class="link" href="#page-coast">Meet the coast behind the tin &rarr;</a></p>
+  </div>
+</section>
+
+<section class="society" id="sec-society">
+  <div class="inner">
+    <div class="socgrid">
+      <div class="socimg bgimg" role="img" aria-label="The Taster Pack box open: a welcome message and four tins forming one coastline"></div>
+      <div>
+        <h2>The Seaweed Society</h2>
+        <p>Founded on the Helgeland coast with one purpose: getting the world to eat more kelp. The Taster Pack is the best place to start: all four tins, one continuous coastline.</p>
+        <p style="margin-top: -14px;"><a class="link" href="#page-coast">Who we are &rarr;</a></p>
+        <a class="cta cta-dark" href="mailto:markusmoberg@gmail.com?subject=Taster%20Pack%20request">Request a Taster Pack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ==================== OUR COAST ==================== -->
+<div class="page" id="page-coast">
+
+<section class="pagehero ph-coast">
+  <div class="inner">
+    <p class="note">R&oslash;d&oslash;y &middot; Helgeland &middot; 66&deg; North</p>
+    <h1>The Seaweed Society</h1>
+  </div>
+</section>
+
+<section class="cause">
+  <div class="inner">
+    <h2>Founded to get the world eating kelp.</h2>
+    <p>Helgeland Seaweed Society is growers and neighbours on the Helgeland coast, with our own small ocean farm at R&oslash;d&oslash;y, working with the chefs and scientists of Nofima, Norway's national food research institute.</p>
+    <p>We believe the most sustainable food on Earth grows in the sea, and that people will eat it when it tastes this good. Farmland is stretched thin and the seas are overfished; kelp asks for neither. That is the whole cause. The tins are how we argue it.</p>
+  </div>
+</section>
+
+<section class="coastblock">
+  <div class="inner">
+    <div class="grid">
+      <div class="photo bgimg p-under" role="img" aria-label="Underwater kelp forest with sunrays"></div>
+      <div>
+        <h2>Grown on ropes, through the cold months.</h2>
+        <p>Winged kelp, <em>Alaria esculenta</em>, grown on ropes in the open sea at Bukk&oslash;ya off R&oslash;d&oslash;y. It is farmed, not wild-harvested: the seabed is left alone, and every batch is traceable to the line it grew on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="coastblock" style="padding-top: 0;">
+  <div class="inner">
+    <div class="grid rev">
+      <div class="photo bgimg p-hands" role="img" aria-label="Hands lifting kelp from the sea"></div>
+      <div>
+        <h2>Nothing needed, nothing taken.</h2>
+        <p>No farmland, no fresh water, no fertiliser, no pesticides. Kelp draws everything it needs from the sea, and leaves the water cleaner than it found it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="coastblock" style="padding-top: 0;">
+  <div class="inner">
+    <div class="grid">
+      <div class="photo bgimg p-midnight" role="img" aria-label="Midnight sun over the Helgeland coast"></div>
+      <div>
+        <h2>Cooked and canned in Lofoten.</h2>
+        <p>The honest old technology of the can keeps real food real for years. No cold chain, no preservatives. One value chain, one owner, since 2019.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="signup">
+  <div class="inner">
+    <h2>Follow the harvest.</h2>
+    <p>One letter from the coast now and then: what the sea is doing, what we are making, and when the new harvest lands.</p>
+    <div class="row"><a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Follow%20the%20harvest">Follow along by email</a></div>
+  </div>
+</section>
+
+<section class="society">
+  <div class="inner">
+    <h2>Taste the coast</h2>
+    <p>Four tins, one cold sea. Start with the Taster Pack.</p>
+    <a class="cta cta-dark" href="#sec-shop">See the tins</a>
+  </div>
+</section>
+
+</div>
+
+<!-- ==================== FOR KITCHENS & RETAIL ==================== -->
+<div class="page" id="page-kitchens">
+
+<section class="pagehero ph-kitchen">
+  <div class="inner">
+    <p class="note">Foodservice &amp; wholesale</p>
+    <h1>Plate-ready Arctic kelp. No prep, no waste.</h1>
+  </div>
+</section>
+
+<section class="tradepage">
+  <div class="inner">
+    <h2>For kitchens</h2>
+    <div class="tcols">
+      <div class="tcard"><h3>Umami that behaves</h3><p>The kelp does the umami work parmesan usually does. Works warm or cold; the curries loosen into a sauce with coconut milk.</p></div>
+      <div class="tcard"><h3>Covers &amp; cost</h3><p>As a sauce base, one can carries two covers. As a finish or spread, it stretches much further. Opened: refrigerate, use within 3&ndash;4 days.</p></div>
+      <div class="tcard"><h3>Consistent, batch to batch</h3><p>Recipes developed with Nofima, Norway's national food research institute. Independently verified: two production batches per product analysed by ALS Norway, iodine within 8%.</p></div>
+    </div>
+
+    <h2>For retail</h2>
+    <div class="tcols">
+      <div class="tcard"><h3>The gap on the shelf</h3><p>Premium tinned food keeps growing, and it all runs on fish. Three of these four tins are fully vegan.</p></div>
+      <div class="tcard"><h3>Pantry logistics</h3><p>Three year shelf life at room temperature. No cold chain, no waste. Cases of 12; EPD and GTIN on request.</p></div>
+      <div class="tcard"><h3>A story that sells itself</h3><p>Single origin at the Arctic Circle, grown on ropes in the maker's own sea. Every batch traceable to the line it grew on.</p></div>
+    </div>
+
+    <h2>Datasheets</h2>
+    <p style="color:#57675F;">Per-SKU specifications: ingredients, allergens, nutrition per 100 g, storage and logistics. The curry datasheets carry the original recipe names, Green and Red Seaweed Pur&eacute;e. Full lab analysis (ALS Laboratory Group Norway) available to wholesale accounts: iodine documented and within all EU limits, including Germany's, inorganic arsenic not detectable.</p>
+    <div class="dslist">
+      <a href="https://cdn.shopify.com/s/files/1/0793/4604/1064/files/SeaweedSociety_Datasheet_seaweed-pesto.pdf" target="_blank" rel="noopener">Seaweed Pesto<small>PDF datasheet</small></a>
+      <a href="https://cdn.shopify.com/s/files/1/0793/4604/1064/files/SeaweedSociety_Datasheet_sea-hummus.pdf" target="_blank" rel="noopener">Sea Hummus<small>PDF datasheet</small></a>
+      <a href="https://cdn.shopify.com/s/files/1/0793/4604/1064/files/SeaweedSociety_Datasheet_green-seaweed-puree.pdf" target="_blank" rel="noopener">Green Curry Kelp<small>PDF datasheet</small></a>
+      <a href="https://cdn.shopify.com/s/files/1/0793/4604/1064/files/SeaweedSociety_Datasheet_red-seaweed-puree.pdf" target="_blank" rel="noopener">Red Curry Kelp<small>PDF datasheet</small></a>
+    </div>
+
+    <p style="margin-top: 40px;"><a class="cta cta-green" href="mailto:markusmoberg@gmail.com">Request samples &amp; wholesale pricing</a></p>
+  </div>
+</section>
+
+</div>
+
+<!-- ==================== PDP: SEAWEED PESTO ==================== -->
+<div class="page" id="page-pesto">
+
+<section class="pdp">
+  <div class="inner">
+    <div class="grid">
+      <div class="photo bgimg" style="background-image: var(--i-s1);" role="img" aria-label="Helgeland Seaweed Pesto pack and tin"></div>
+      <div>
+        <p class="kick">Winged kelp &middot; Vegan</p>
+        <h1>Seaweed Pesto</h1>
+        <p class="taste">Nordic umami in a spoon.</p>
+        <p class="price">99 kr <span style="font-weight:400; color:#6B7A72; font-size:14px;">&middot; 120 g &middot; 8 servings</span></p>
+        <p class="desc">Winged kelp with pumpkin and sunflower seeds, garlic and lemon. Rich, deeply savoury: the kelp does the umami work parmesan usually does. Perfect for pasta, fish and bread.</p>
+        <a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Samples%3A%20Seaweed%20Pesto">Request samples</a>
+
+        <h4>In the kitchen</h4>
+        <ul>
+          <li>Spread thick on sourdough or dark rye</li>
+          <li>Toss through pasta, gnocchi or roasted vegetables</li>
+          <li>Whip into aioli or beurre blanc for fish and shellfish</li>
+          <li>Fold into dressings and cold sauces</li>
+        </ul>
+
+        <h4>Ingredients</h4>
+        <p style="font-size:15px; color:#3E4C45;">Winged kelp (<em>Alaria esculenta</em>) 33%, pumpkin seeds, sunflower seeds, yeast extract, garlic, sunflower oil 46%, salt, lemon juice, sugar, ground black pepper, chlorophyllin (E141) 0.01%.</p>
+        <p style="font-size:14px; color:#1E5C4F; font-weight:600; margin-top:6px;">No nuts, gluten, dairy, soy or sesame.</p>
+
+        <h4>Nutrition</h4>
+        <table>
+          <tr><td style="color:#6B7A72;"></td><td style="color:#6B7A72;">per 100 g</td><td style="color:#6B7A72;">per 15 g</td></tr>
+          <tr><td>Energy</td><td>2560 kJ / 622 kcal</td><td>384 kJ / 93 kcal</td></tr>
+          <tr><td>Fat</td><td>65.5 g</td><td>9.8 g</td></tr>
+          <tr><td>&ndash; saturated</td><td>7.6 g</td><td>1.1 g</td></tr>
+          <tr><td>&ndash; monounsaturated</td><td>18.8 g</td><td>2.8 g</td></tr>
+          <tr><td>&ndash; polyunsaturated</td><td>36.1 g</td><td>5.4 g</td></tr>
+          <tr><td>Carbohydrate</td><td>4.1 g</td><td>0.6 g</td></tr>
+          <tr><td>&ndash; sugars</td><td>1.6 g</td><td>0.2 g</td></tr>
+          <tr><td>Fibre</td><td>2.2 g</td><td>0.3 g</td></tr>
+          <tr><td>Protein</td><td>5.3 g</td><td>0.8 g</td></tr>
+          <tr><td>Salt</td><td>1.7 g</td><td>0.3 g</td></tr>
+        </table>
+
+        <p class="fine">A 15 g serving is 93 kcal, and 84% of the fat is unsaturated, from seeds and sunflower oil.</p>
+        <p class="fine">Contains iodine from seaweed; pregnant or breastfeeding women, young children and people with thyroid disorders should follow dietary advice.</p>
+        <p class="fine">Keeps three years unopened, no refrigeration. After opening: refrigerate and use within 3&ndash;4 days. Kelp grown at Bukk&oslash;ya, R&oslash;d&oslash;y, Norway.</p>
+        <p class="fine"><a class="link" href="#sec-shop">&larr; All four tins</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="page" id="page-hummus">
+
+<section class="pdp">
+  <div class="inner">
+    <div class="grid">
+      <div class="photo bgimg" style="background-image: var(--i-s2);" role="img" aria-label="Helgeland Sea Hummus pack and tin"></div>
+      <div>
+        <p class="kick">Winged kelp &middot; Vegan</p>
+        <h1>Sea Hummus</h1>
+        <p class="taste">Creamy, plant-based, and full of flavour.</p>
+        <p class="price">99 kr <span style="font-weight:400; color:#6B7A72; font-size:14px;">&middot; 120 g &middot; 8 servings</span></p>
+        <p class="desc">Winged kelp and chickpeas with garlic, lemon and cumin. Lighter than a classic hummus, with a clean mineral finish from the sea. The most kelp of the four, at 37%.</p>
+        <a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Samples%3A%20Sea%20Hummus">Request samples</a>
+
+        <h4>In the kitchen</h4>
+        <ul>
+          <li>Straight onto the snack board with crackers and crudit&eacute;s</li>
+          <li>Into wraps, pita and sandwiches</li>
+          <li>Spooned over warm grains or roasted carrots</li>
+          <li>As the base of a mezze plate</li>
+        </ul>
+
+        <h4>Ingredients</h4>
+        <p style="font-size:15px; color:#3E4C45;">Winged kelp (<em>Alaria esculenta</em>) 37%, water, chickpeas 41%, garlic, sunflower oil, lemon juice, cumin, paprika powder, salt.</p>
+        <p style="font-size:14px; color:#1E5C4F; font-weight:600; margin-top:6px;">No nuts, gluten, dairy, soy or sesame. No tahini.</p>
+
+        <h4>Nutrition</h4>
+        <table>
+          <tr><td style="color:#6B7A72;"></td><td style="color:#6B7A72;">per 100 g</td><td style="color:#6B7A72;">per 15 g</td></tr>
+          <tr><td>Energy</td><td>567 kJ / 136 kcal</td><td>85 kJ / 20 kcal</td></tr>
+          <tr><td>Fat</td><td>7.8 g</td><td>1.2 g</td></tr>
+          <tr><td>&ndash; saturated</td><td>0.9 g</td><td>0.1 g</td></tr>
+          <tr><td>&ndash; monounsaturated</td><td>2.2 g</td><td>0.3 g</td></tr>
+          <tr><td>&ndash; polyunsaturated</td><td>4.3 g</td><td>0.6 g</td></tr>
+          <tr><td>Carbohydrate</td><td>13.6 g</td><td>2.0 g</td></tr>
+          <tr><td>&ndash; sugars</td><td>0.4 g</td><td>0.1 g</td></tr>
+          <tr><td>Fibre</td><td>4.2 g</td><td>0.6 g</td></tr>
+          <tr><td>Protein</td><td>5.1 g</td><td>0.8 g</td></tr>
+          <tr><td>Salt</td><td>1.1 g</td><td>0.2 g</td></tr>
+        </table>
+
+        <p class="fine">Low in saturated fat, a source of protein and a source of fibre. A 15 g serving is 20 kcal.</p>
+        <p class="fine">Contains iodine from seaweed; pregnant or breastfeeding women, young children and people with thyroid disorders should follow dietary advice.</p>
+        <p class="fine">Keeps three years unopened, no refrigeration. After opening: refrigerate and use within 3&ndash;4 days. Kelp grown at Bukk&oslash;ya, R&oslash;d&oslash;y, Norway.</p>
+        <p class="fine"><a class="link" href="#sec-shop">&larr; All four tins</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="page" id="page-green">
+
+<section class="pdp">
+  <div class="inner">
+    <div class="grid">
+      <div class="photo bgimg" style="background-image: var(--i-s3);" role="img" aria-label="Helgeland Green Curry Kelp pack and tin"></div>
+      <div>
+        <p class="kick">Winged kelp &middot; Vegan</p>
+        <h1>Green Curry Kelp</h1>
+        <p class="taste">Fresh green curry with a hint of the sea.</p>
+        <p class="price">99 kr <span style="font-weight:400; color:#6B7A72; font-size:14px;">&middot; 120 g &middot; 8 servings</span></p>
+        <p class="desc">Winged kelp and mung beans in a green curry of coconut milk, lemongrass, galangal and kaffir lime. Mild heat, fresh finish. Makes rice, noodles and vegetables instantly exciting.</p>
+        <a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Samples%3A%20Green%20Curry%20Kelp">Request samples</a>
+
+        <h4>In the kitchen</h4>
+        <ul>
+          <li>Spread on flatbread or warm sourdough</li>
+          <li>Stirred through rice, noodles or grain bowls</li>
+          <li>Loosened with coconut milk into a five-minute curry</li>
+          <li>Spooned over roasted vegetables or eggs</li>
+        </ul>
+
+        <h4>Ingredients</h4>
+        <p style="font-size:15px; color:#3E4C45;">Winged kelp (<em>Alaria esculenta</em>) 27%, mung beans 44%, coconut milk, green curry paste (green chili, shallot, lemongrass, salt, garlic, galangal, kaffir lime peel, cumin, coriander seeds), brown sugar, sunflower oil, lemon juice, yeast extract, chlorophyllin (E141) 0.01%, salt.</p>
+        <p style="font-size:14px; color:#1E5C4F; font-weight:600; margin-top:6px;">Contains coconut. No gluten, dairy, soy or sesame.</p>
+
+        <h4>Nutrition</h4>
+        <table>
+          <tr><td style="color:#6B7A72;"></td><td style="color:#6B7A72;">per 100 g</td><td style="color:#6B7A72;">per 15 g</td></tr>
+          <tr><td>Energy</td><td>521 kJ / 125 kcal</td><td>78 kJ / 19 kcal</td></tr>
+          <tr><td>Fat</td><td>5.9 g</td><td>0.9 g</td></tr>
+          <tr><td>&ndash; saturated</td><td>3.0 g</td><td>0.4 g</td></tr>
+          <tr><td>&ndash; monounsaturated</td><td>1.0 g</td><td>0.1 g</td></tr>
+          <tr><td>&ndash; polyunsaturated</td><td>1.7 g</td><td>0.3 g</td></tr>
+          <tr><td>Carbohydrate</td><td>14.3 g</td><td>2.1 g</td></tr>
+          <tr><td>&ndash; sugars</td><td>2.1 g</td><td>0.3 g</td></tr>
+          <tr><td>Fibre</td><td>3.0 g</td><td>0.5 g</td></tr>
+          <tr><td>Protein</td><td>5.0 g</td><td>0.8 g</td></tr>
+          <tr><td>Salt</td><td>1.4 g</td><td>0.2 g</td></tr>
+        </table>
+
+        <p class="fine">A source of protein and a source of fibre. A 15 g serving is 19 kcal.</p>
+        <p class="fine">Contains iodine from seaweed; pregnant or breastfeeding women, young children and people with thyroid disorders should follow dietary advice.</p>
+        <p class="fine">Keeps three years unopened, no refrigeration. After opening: refrigerate and use within 3&ndash;4 days. Kelp grown at Bukk&oslash;ya, R&oslash;d&oslash;y, Norway.</p>
+        <p class="fine"><a class="link" href="#sec-shop">&larr; All four tins</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="page" id="page-red">
+
+<section class="pdp">
+  <div class="inner">
+    <div class="grid">
+      <div class="photo bgimg" style="background-image: var(--i-s4);" role="img" aria-label="Helgeland Red Curry Kelp pack and tin"></div>
+      <div>
+        <p class="kick">Winged kelp</p>
+        <h1>Red Curry Kelp</h1>
+        <p class="taste">Deep, warming curry with ocean umami.</p>
+        <p class="price">99 kr <span style="font-weight:400; color:#6B7A72; font-size:14px;">&middot; 120 g &middot; 8 servings</span></p>
+        <p class="desc">Winged kelp and chickpeas in a red curry of coconut milk, chilli and lemongrass, with fish sauce the way a proper red curry wants it. Use as a sauce, a base or a topping, ready in seconds.</p>
+        <a class="cta cta-green" href="mailto:markusmoberg@gmail.com?subject=Samples%3A%20Red%20Curry%20Kelp">Request samples</a>
+
+        <h4>In the kitchen</h4>
+        <ul>
+          <li>With chicken, fish or roasted cauliflower</li>
+          <li>Stirred through rice or noodles</li>
+          <li>Loosened with coconut milk into a sauce</li>
+          <li>On flatbread, under a fried egg</li>
+        </ul>
+
+        <h4>Ingredients</h4>
+        <p style="font-size:15px; color:#3E4C45;">Winged kelp (<em>Alaria esculenta</em>) 27%, chickpeas 43%, coconut milk 20%, red curry paste (red chili, garlic, lemongrass, shallot, salt, galangal, lime peel, coriander seeds, cumin), brown sugar, red chili, fish sauce, salt, sugar, sunflower oil, lemon juice.</p>
+        <p style="font-size:14px; color:#1E5C4F; font-weight:600; margin-top:6px;">Contains fish (fish sauce) and coconut. No gluten, dairy, soy or sesame.</p>
+
+        <h4>Nutrition</h4>
+        <table>
+          <tr><td style="color:#6B7A72;"></td><td style="color:#6B7A72;">per 100 g</td><td style="color:#6B7A72;">per 15 g</td></tr>
+          <tr><td>Energy</td><td>535 kJ / 129 kcal</td><td>80 kJ / 19 kcal</td></tr>
+          <tr><td>Fat</td><td>6.3 g</td><td>0.9 g</td></tr>
+          <tr><td>&ndash; saturated</td><td>2.9 g</td><td>0.4 g</td></tr>
+          <tr><td>&ndash; monounsaturated</td><td>1.2 g</td><td>0.2 g</td></tr>
+          <tr><td>&ndash; polyunsaturated</td><td>1.8 g</td><td>0.3 g</td></tr>
+          <tr><td>Carbohydrate</td><td>14.8 g</td><td>2.2 g</td></tr>
+          <tr><td>&ndash; sugars</td><td>2.3 g</td><td>0.3 g</td></tr>
+          <tr><td>Fibre</td><td>4.2 g</td><td>0.6 g</td></tr>
+          <tr><td>Protein</td><td>5.3 g</td><td>0.8 g</td></tr>
+          <tr><td>Salt</td><td>1.2 g</td><td>0.2 g</td></tr>
+        </table>
+
+        <p class="fine">A source of protein and a source of fibre. A 15 g serving is 19 kcal.</p>
+        <p class="fine">Contains iodine from seaweed; pregnant or breastfeeding women, young children and people with thyroid disorders should follow dietary advice.</p>
+        <p class="fine">Keeps three years unopened, no refrigeration. After opening: refrigerate and use within 3&ndash;4 days. Kelp grown at Bukk&oslash;ya, R&oslash;d&oslash;y, Norway.</p>
+        <p class="fine"><a class="link" href="#sec-shop">&larr; All four tins</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <span>Helgeland Seaweed Society</span>
+    <span>Grown at the Arctic Circle, Norway</span>
+  </div>
+</footer>
+
+<script>
+document.body.classList.add('js');
+var h = (location.hash || '').slice(1);
+var start = h && document.getElementById(h);
+if (start && start.classList.contains('page')) start.classList.add('active');
+else document.getElementById('page-home').classList.add('active');
+document.addEventListener('click', function (e) {
+  var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+  if (!a) return;
+  var id = a.getAttribute('href').slice(1);
+  var pg = document.getElementById(id);
+  e.preventDefault();
+  if (pg && pg.classList.contains('page')) {
+    document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
+    pg.classList.add('active');
+    window.scrollTo(0, 0);
+  } else {
+    var home = document.getElementById('page-home');
+    if (!home.classList.contains('active')) {
+      document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
+      home.classList.add('active');
+    }
+    var el = document.getElementById(id);
+    if (el) el.scrollIntoView();
+  }
+}, true);
+</script>
+
