@@ -13,7 +13,7 @@
     --i-s4: url("img/s4.jpg");
     --i-box: url("img/box.jpg");
     --i-panorama: url("img/panorama.jpg");
-    --i-kelp: url("img/kelp.jpg"); --i-harvest: url("img/harvest.jpg"); --i-line: url("img/line.jpg"); --i-sea: url("img/sea.jpg"); --i-winter: url("img/winter.jpg"); --i-sunset: url("img/sunset.jpg"); --i-summer: url("img/summer.jpg"); --i-markus: url("img/markus.jpg"); --i-jakob: url("img/jakob.jpg");
+    --i-kelp: url("img/kelp.jpg"); --i-harvest: url("img/harvest.jpg"); --i-line: url("img/line.jpg"); --i-sea: url("img/sea.jpg"); --i-winter: url("img/winter.jpg"); --i-sunset: url("img/sunset.jpg"); --i-summer: url("img/summer.jpg"); --i-markus: url("img/markus.jpg"); --i-jakob: url("img/jakob.jpg"); --i-blade: url("img/blade.jpg"); --i-markusk: url("img/markusk.jpg");
   }
   * { box-sizing: border-box; margin: 0; }
   body {
@@ -124,6 +124,14 @@
   .pillar p { font-size: 15px; }
 
   /* health */
+  .hgrid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 44px; align-items: center; }
+  .hphoto { aspect-ratio: 4/3; border-radius: 16px; background-image: var(--i-blade); }
+  @media (max-width: 860px) { .hgrid { grid-template-columns: 1fr; } }
+  .cgrid2 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 44px; align-items: start; }
+  .cportrait { margin: 0; }
+  .cportrait .bgimg { aspect-ratio: 4/5; border-radius: 16px; background-image: var(--i-markusk); background-position: center 40%; }
+  .cportrait figcaption { font-size: 13px; color: #57675F; margin-top: 10px; }
+  @media (max-width: 860px) { .cgrid2 { grid-template-columns: 1fr; } .cportrait { max-width: 340px; } }
   .health { padding: clamp(56px, 8vw, 96px) 0; }
   .health h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; margin-bottom: 16px; text-wrap: balance; }
   .health p.lead { color: #57675F; max-width: 95ch; margin-bottom: 36px; }
@@ -358,6 +366,8 @@
 
 <section class="health">
   <div class="inner">
+    <div class="hgrid">
+      <div class="hcopy">
     <h2>Good for you, in the oldest way.</h2>
     <p class="lead">Seaweed has fed the Norwegian coast for a thousand years.<br>Kelp is a sea vegetable: light, naturally rich in minerals, and part of everyday cooking here long before it was fashionable.</p>
     <div class="statrow">
@@ -365,6 +375,9 @@
       <div class="stat"><div class="n">0</div><div class="l">gluten or dairy in any tin</div></div>
       <div class="stat"><div class="n">8</div><div class="l">servings in every tin, no preservatives</div></div>
       <div class="stat"><div class="n">3</div><div class="l">fully vegan varieties</div></div>
+    </div>
+      </div>
+      <div class="hphoto bgimg" role="img" aria-label="A blade of winged kelp on a white plate, translucent gold in the light"></div>
     </div>
   </div>
 </section>
@@ -408,9 +421,17 @@
 
 <section class="cause">
   <div class="inner">
+    <div class="cgrid2">
+      <div>
     <h2>Founded to get the world eating kelp.</h2>
     <p>Helgeland Seaweed Society is growers and neighbours on the Helgeland coast, with our own small ocean farm at R&oslash;d&oslash;y, working with the chefs and scientists of Nofima, Norway's national food research institute.</p>
     <p>We believe the most sustainable food on Earth grows in the sea, and that people will eat it when it tastes this good. Farmland is stretched thin and the seas are overfished; kelp asks for neither. That is the whole cause. The tins are how we argue it.</p>
+      </div>
+      <figure class="cportrait">
+        <div class="bgimg" role="img" aria-label="Markus holding up a whole blade of winged kelp against the sky"></div>
+        <figcaption>Markus with a blade of winged kelp, straight off the line.</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
