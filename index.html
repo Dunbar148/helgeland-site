@@ -13,7 +13,7 @@
     --i-s4: url("img/s4.jpg");
     --i-box: url("img/box.jpg");
     --i-panorama: url("img/panorama.jpg");
-    --i-kelp: url("img/kelp.jpg"); --i-harvest: url("img/harvest.jpg"); --i-line: url("img/line.jpg"); --i-sea: url("img/sea.jpg"); --i-winter: url("img/winter.jpg"); --i-sunset: url("img/sunset.jpg"); --i-summer: url("img/summer.jpg"); --i-markus: url("img/markus.jpg");
+    --i-kelp: url("img/kelp.jpg"); --i-harvest: url("img/harvest.jpg"); --i-line: url("img/line.jpg"); --i-sea: url("img/sea.jpg"); --i-winter: url("img/winter.jpg"); --i-sunset: url("img/sunset.jpg"); --i-summer: url("img/summer.jpg"); --i-markus: url("img/markus.jpg"); --i-jakob: url("img/jakob.jpg");
   }
   * { box-sizing: border-box; margin: 0; }
   body {
@@ -223,6 +223,8 @@
   .cintro h2, .thanks h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); margin-bottom: 12px; }
   .cintro p, .thanks p { color: #57675F; max-width: 44ch; margin-bottom: 14px; }
   .csmall { font-size: 14px; }
+  .p-jakob { background-image: var(--i-jakob); aspect-ratio: 3/4 !important; background-position: center 42%; width: min(100%, 440px); justify-self: end; }
+  @media (max-width: 800px) { .p-jakob { width: 100%; justify-self: stretch; } }
   .cphoto { margin: 6px 0 18px; max-width: 360px; }
   .cphoto .bgimg { aspect-ratio: 4 / 5; border-radius: 16px; background-size: cover; background-position: top center; }
   .cphoto figcaption { font-size: 13px; color: #57675F; margin-top: 10px; }
@@ -432,6 +434,18 @@
         <h2>Nothing needed, nothing taken.</h2>
         <p>No farmland, no fresh water, no fertiliser, no pesticides. Kelp draws everything it needs from the sea, and leaves the water cleaner than it found it.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="coastblock" style="padding-top: 0;">
+  <div class="inner">
+    <div class="grid">
+      <div>
+        <h2>It comes ashore by hand.</h2>
+        <p>Jakob, with a morning's kelp at R&oslash;d&oslash;y. Everything that leaves the island has been through someone's hands first.</p>
+      </div>
+      <div class="photo bgimg p-jakob" role="img" aria-label="Jakob in orange waders holding two handfuls of freshly landed kelp in the boathouse"></div>
     </div>
   </div>
 </section>
@@ -734,7 +748,7 @@
         <p>Samples for your kitchen, wholesale terms for your shelves, or a Taster Pack to try at home. We read every message and reply within two working days.</p>
         <figure class="cphoto">
           <div class="bgimg" role="img" aria-label="Carl-Erik on the boat at the farm, holding a line of fresh kelp, buoys and a snow-capped peak behind" style="background-image: var(--i-markus);"></div>
-          <figcaption>Carl-Erik on the line at R&oslash;d&oslash;y. Write to us and you reach the two people who make this.</figcaption>
+          <figcaption>Carl-Erik on the line at R&oslash;d&oslash;y.</figcaption>
         </figure>
         <p class="csmall">Helgeland Seaweed Society<br>R&oslash;d&oslash;y, Helgeland, Norway</p>
       </div>
