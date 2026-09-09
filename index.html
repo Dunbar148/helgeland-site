@@ -271,6 +271,27 @@
     .cta { padding: 12px 22px; font-size: 14.5px; margin: 0 8px 8px 0; }
     .cta-ghost { margin-left: 0; }
     .shop .feature { aspect-ratio: 4/3; }
+    /* the four tins become one swipeable row instead of a 1400px stack. The cards bleed
+       to the screen edges and the next one is left half-showing, so the cut edge is the
+       affordance; no scrollbar, no hint text. */
+    .grid4 {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: 58%;
+      gap: 14px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x proximity;
+      /* without this the first card snaps to the scrollport edge and eats the gutter,
+         leaving it flush left while the heading above it is indented */
+      scroll-padding: 0 20px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      margin: 0 -20px;
+      padding: 0 20px 2px;
+    }
+    .grid4::-webkit-scrollbar { display: none; }
+    .grid4 .card { scroll-snap-align: start; }
     .eat .img { min-height: 260px; }
     /* the product grid's second column takes its width from the nutrition table, which
        has nowrap number cells; without minmax(0,...) that column widened the whole page */
@@ -283,6 +304,11 @@
     .pdp td:nth-child(2), .pdp td:nth-child(3) { white-space: normal; }
     /* stacked coast blocks always read photo first, so a caption never precedes its image */
     .coastblock .grid > .photo { order: -1; }
+  }
+
+  /* tablets: auto-fit fits three across and orphans the fourth, so pair them up */
+  @media (min-width: 621px) and (max-width: 900px) {
+    .grid4 { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -345,37 +371,6 @@
   </div>
 </section>
 
-<section class="shop" id="sec-shop">
-  <div class="inner">
-    <h2>The tins</h2>
-    <p class="tagline">Ready the second you pull the ring, and no wrong way to do it. Prices in Norwegian kroner; US pricing from $7.99 at launch.</p>
-    <div class="feature bgimg" role="img" aria-label="All four Helgeland tins open on a wooden table with rye bread"></div>
-    <div class="grid4">
-      <a class="card" href="#page-pesto">
-        <div class="tinimg bgimg t1" role="img" aria-label="Helgeland Seaweed Pesto tin"></div>
-        <p class="pname">Seaweed Pesto</p>
-        <p class="use">Herby and deep, with the sea's quiet saltiness &middot; Vegan</p><p class="price">99 kr</p>
-      </a>
-      <a class="card" href="#page-hummus">
-        <div class="tinimg bgimg t2" role="img" aria-label="Helgeland Sea Hummus tin"></div>
-        <p class="pname">Sea Hummus</p>
-        <p class="use">Creamy and mild, lifted by clean ocean brine &middot; Vegan</p><p class="price">99 kr</p>
-      </a>
-      <a class="card" href="#page-green">
-        <div class="tinimg bgimg t3" role="img" aria-label="Helgeland Green Curry Kelp tin"></div>
-        <p class="pname">Green Curry Kelp</p>
-        <p class="use">Bright and warm: green herbs, coconut warmth, fresh kelp &middot; Vegan</p><p class="price">99 kr</p>
-      </a>
-      <a class="card" href="#page-red">
-        <div class="tinimg bgimg t4" role="img" aria-label="Helgeland Red Curry Kelp tin"></div>
-        <p class="pname">Red Curry Kelp</p>
-        <p class="use">Round and deep: red chili warmth over dark umami &middot; Contains fish sauce</p><p class="price">99 kr</p>
-      </a>
-    </div>
-    <p style="margin-top: 34px;"><a class="cta cta-green" href="#page-contact?topic=taster">Request a Taster Pack</a></p>
-  </div>
-</section>
-
 <section class="panoband">
   <div class="inner">
     <h2>One coast, four tins.</h2>
@@ -427,6 +422,37 @@
       <figure><div class="ph bgimg p-midnight" role="img" aria-label="Low sun over the water at the farm dock, a yellow rowboat pulled up on the grass"></div><figcaption>Midnight sun, R&oslash;d&oslash;y</figcaption></figure>
     </div>
     <p class="more"><a class="link" href="#page-coast">Meet the coast behind the tin &rarr;</a></p>
+  </div>
+</section>
+
+<section class="shop" id="sec-shop">
+  <div class="inner">
+    <h2>The tins</h2>
+    <p class="tagline">Ready the second you pull the ring, and no wrong way to do it. Prices in Norwegian kroner; US pricing from $7.99 at launch.</p>
+    <div class="feature bgimg" role="img" aria-label="All four Helgeland tins open on a wooden table with rye bread"></div>
+    <div class="grid4">
+      <a class="card" href="#page-pesto">
+        <div class="tinimg bgimg t1" role="img" aria-label="Helgeland Seaweed Pesto tin"></div>
+        <p class="pname">Seaweed Pesto</p>
+        <p class="use">Herby and deep, with the sea's quiet saltiness &middot; Vegan</p><p class="price">99 kr</p>
+      </a>
+      <a class="card" href="#page-hummus">
+        <div class="tinimg bgimg t2" role="img" aria-label="Helgeland Sea Hummus tin"></div>
+        <p class="pname">Sea Hummus</p>
+        <p class="use">Creamy and mild, lifted by clean ocean brine &middot; Vegan</p><p class="price">99 kr</p>
+      </a>
+      <a class="card" href="#page-green">
+        <div class="tinimg bgimg t3" role="img" aria-label="Helgeland Green Curry Kelp tin"></div>
+        <p class="pname">Green Curry Kelp</p>
+        <p class="use">Bright and warm: green herbs, coconut warmth, fresh kelp &middot; Vegan</p><p class="price">99 kr</p>
+      </a>
+      <a class="card" href="#page-red">
+        <div class="tinimg bgimg t4" role="img" aria-label="Helgeland Red Curry Kelp tin"></div>
+        <p class="pname">Red Curry Kelp</p>
+        <p class="use">Round and deep: red chili warmth over dark umami &middot; Contains fish sauce</p><p class="price">99 kr</p>
+      </a>
+    </div>
+    <p style="margin-top: 34px;"><a class="cta cta-green" href="#page-contact?topic=taster">Request a Taster Pack</a></p>
   </div>
 </section>
 
