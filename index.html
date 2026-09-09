@@ -101,7 +101,10 @@
   .t3 { background-image: var(--i-s3); } .t4 { background-image: var(--i-s4); }
   .card .pname { font-family: "Bricolage Grotesque", sans-serif; font-weight: 600; font-size: 17px; margin: 12px 2px 0; }
   .card .use { font-size: 13.5px; color: #6B7A72; margin: 4px 2px 0; }
-  .card .price { font-size: 13.5px; font-weight: 600; margin: 2px 2px 0; }
+  .card .price { font-size: 13.5px; font-weight: 600; margin: 6px 2px 0;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .card .cmore { color: #1E5C4F; white-space: nowrap; }
+  .card:hover .cmore { text-decoration: underline; text-underline-offset: 3px; }
 
   /* underwater band */
   .under {
@@ -148,6 +151,8 @@
 
   /* story strip */
   .story { padding: clamp(56px, 8vw, 90px) 0; }
+  .story h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500;
+    font-size: clamp(26px, 3.6vw, 38px); line-height: 1.15; margin-bottom: 22px; text-wrap: balance; }
   .strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
   .strip figure { border-radius: 14px; overflow: hidden; position: relative; aspect-ratio: 4/3; margin: 0; }
   .strip .ph { position: absolute; inset: 0; }
@@ -416,6 +421,7 @@
 
 <section class="story">
   <div class="inner">
+    <h2>The place, the work, the light.</h2>
     <div class="strip">
       <figure><div class="ph bgimg p-snowy" role="img" aria-label="Skerries and turquoise shallows off R&oslash;d&oslash;y, a small farm on the shore and snow still on the peaks"></div><figcaption>The bay at R&oslash;d&oslash;y</figcaption></figure>
       <figure><div class="ph bgimg p-hands" role="img" aria-label="Carl-Erik lifting fresh kelp off the line into a tub on the farm dock"></div><figcaption>The harvest, by hand</figcaption></figure>
@@ -434,25 +440,24 @@
       <a class="card" href="#page-pesto">
         <div class="tinimg bgimg t1" role="img" aria-label="Helgeland Seaweed Pesto tin"></div>
         <p class="pname">Seaweed Pesto</p>
-        <p class="use">Herby and deep, with the sea's quiet saltiness &middot; Vegan</p><p class="price">99 kr</p>
+        <p class="use">Herby and deep, with the sea's quiet saltiness &middot; Vegan</p><p class="price">99 kr <span class="cmore">Details &rarr;</span></p>
       </a>
       <a class="card" href="#page-hummus">
         <div class="tinimg bgimg t2" role="img" aria-label="Helgeland Sea Hummus tin"></div>
         <p class="pname">Sea Hummus</p>
-        <p class="use">Creamy and mild, lifted by clean ocean brine &middot; Vegan</p><p class="price">99 kr</p>
+        <p class="use">Creamy and mild, lifted by clean ocean brine &middot; Vegan</p><p class="price">99 kr <span class="cmore">Details &rarr;</span></p>
       </a>
       <a class="card" href="#page-green">
         <div class="tinimg bgimg t3" role="img" aria-label="Helgeland Green Curry Kelp tin"></div>
         <p class="pname">Green Curry Kelp</p>
-        <p class="use">Bright and warm: green herbs, coconut warmth, fresh kelp &middot; Vegan</p><p class="price">99 kr</p>
+        <p class="use">Bright and warm: green herbs, coconut warmth, fresh kelp &middot; Vegan</p><p class="price">99 kr <span class="cmore">Details &rarr;</span></p>
       </a>
       <a class="card" href="#page-red">
         <div class="tinimg bgimg t4" role="img" aria-label="Helgeland Red Curry Kelp tin"></div>
         <p class="pname">Red Curry Kelp</p>
-        <p class="use">Round and deep: red chili warmth over dark umami &middot; Contains fish sauce</p><p class="price">99 kr</p>
+        <p class="use">Round and deep: red chili warmth over dark umami &middot; Contains fish sauce</p><p class="price">99 kr <span class="cmore">Details &rarr;</span></p>
       </a>
     </div>
-    <p style="margin-top: 34px;"><a class="cta cta-green" href="#page-contact?topic=taster">Request a Taster Pack</a></p>
   </div>
 </section>
 
