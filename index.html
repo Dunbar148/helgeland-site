@@ -17,7 +17,7 @@
     --i-s4: url("img/s4.jpg");
     --i-box: url("img/box.jpg");
     --i-panorama: url("img/panorama.jpg");
-    --i-kelp: url("img/kelp.jpg"); --i-harvest: url("img/harvest.jpg"); --i-summit: url("img/summit.jpg"); --i-line: url("img/line.jpg"); --i-sea: url("img/sea.jpg"); --i-winter: url("img/winter.jpg"); --i-sunset: url("img/sunset.jpg"); --i-summer: url("img/summer.jpg");
+    --i-kelp: url("img/kelp.jpg"); --i-harvest: url("img/harvest.jpg"); --i-summit: url("img/summit.jpg"); --i-line: url("img/line.jpg"); --i-sea: url("img/sea.jpg"); --i-winter: url("img/winter.jpg"); --i-sunset: url("img/sunset.jpg"); --i-summer: url("img/summer.jpg"); --i-markus: url("img/markus.jpg");
   }
   * { box-sizing: border-box; margin: 0; }
   body {
@@ -227,6 +227,10 @@
   .cintro h2, .thanks h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); margin-bottom: 12px; }
   .cintro p, .thanks p { color: #57675F; max-width: 44ch; margin-bottom: 14px; }
   .csmall { font-size: 14px; }
+  .cphoto { margin: 6px 0 18px; max-width: 360px; }
+  .cphoto .bgimg { aspect-ratio: 4 / 5; border-radius: 16px; background-size: cover; background-position: top center; }
+  .cphoto figcaption { font-size: 13px; color: #57675F; margin-top: 10px; }
+
   .cform { background: #FDFDF9; border: 1px solid #E4E4DA; border-radius: 16px; padding: 28px; display: grid; gap: 16px; }
   .crow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   @media (max-width: 560px) { .crow { grid-template-columns: 1fr; } }
@@ -732,6 +736,10 @@
       <div class="cintro">
         <h2>Tell us what you need.</h2>
         <p>Samples for your kitchen, wholesale terms for your shelves, or a Taster Pack to try at home. We read every message and reply within two working days.</p>
+        <figure class="cphoto">
+          <div class="bgimg" role="img" aria-label="Markus on the boat at the farm, holding a line of fresh kelp, buoys and a snow-capped peak behind" style="background-image: var(--i-markus);"></div>
+          <figcaption>Markus, on the line at R&oslash;d&oslash;y. Your message lands with him.</figcaption>
+        </figure>
         <p class="csmall">Helgeland Seaweed Society<br>R&oslash;d&oslash;y, Helgeland, Norway</p>
       </div>
       <form class="cform" action="https://api.web3forms.com/submit" method="POST">
